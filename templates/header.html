@@ -1,0 +1,143 @@
+{% load static %}
+<!-- HEADER START -->
+<header class="site-header header-style-1 mobile-sider-drawer-menu">
+    <div class="sticky-header main-bar-wraper">
+        <div class="main-bar p-t5">
+            <div class="container">
+                <div class="logo-header">
+                    <div class="logo-header-inner logo-header-one">
+                        <a href="{% url 'dark' %}">
+                            {% if settings.logo %}
+                                <img src="{{ settings.logo.url }}" alt="{{ base_info.company_name|default:settings.title }}" />
+                            {% else %}
+                                <img src="{% static 'images/logo-light.png' %}" alt="{{ base_info.company_name|default:settings.title }}" />
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                    <!-- NAV Toggle Button -->
+                    <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar icon-bar-first"></span>
+                        <span class="icon-bar icon-bar-two"></span>
+                        <span class="icon-bar icon-bar-three"></span>
+                    </button>
+                    <!-- ETRA Nav -->
+
+                    <!-- MAIN Vav -->
+                    <div class="header-nav navbar-collapse collapse">
+                        <ul class=" nav navbar-nav">
+                            <li class="active">
+                                <a href="{% url 'dark' %}">Главная</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'index' %}">О нас</a>
+                            </li>                                         
+                            <li>
+                                <a href="{% url 'contact-page' %}">Контакты</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Проекты</a>
+                                <ul class="sub-menu">
+                                    <li><a href="work-grid.html">Проекты сетка</a></li>
+                                    <li><a href="work-masonry.html">Проекты мозаика</a></li>
+                                    <li><a href="work-carousel.html">Проекты карусель</a></li>
+                                    <li><a href="project-detail.html">Детали проекта</a></li>                                        
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="extra-nav">
+                        <div class="extra-cell">
+                            <a href="#" class="contact-slide-show text-white"><i class="fa fa-envelope-o"></i></a>
+                        </div>    
+                        <div class="extra-cell">											
+                            <a href="#search" class=" text-white">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                        <div class="extra-cell">   
+                            <a href="javascript:;" class="socialicon_show  text-white">
+                                <i class="fa fa-share-alt"></i>
+                            </a>
+                        </div>   	
+                    </div>
+                    <!-- ETRA Nav -->
+                       
+                    <!-- Social Nav -->
+                    <div class="social_hide"> 
+                        <div class="side-social-nav">
+                             <a href="javascript:void(0)" class="socialicon_close">&times;</a>
+                             <ul class="list-unstyled">
+                                {% if settings.facebook %}
+                                    <li><a href="{{ settings.facebook }}" class="fa fa-facebook"><span class="social-tooltip">Facebook</span></a></li>
+                                {% endif %}
+                                {% if settings.instagram %}
+                                    <li><a href="{{ settings.instagram }}" class="fa fa-instagram"><span class="social-tooltip">Instagram</span></a></li>
+                                {% endif %}
+                                {% if settings.youtube %}
+                                    <li><a href="{{ settings.youtube }}" class="fa fa-youtube"><span class="social-tooltip">Youtube</span></a></li>
+                                {% endif %}
+                                {% if settings.telegram %}
+                                    <li><a href="{{ settings.telegram }}" class="fa fa-telegram"><span class="social-tooltip">Telegram</span></a></li>
+                                {% endif %}
+                                {% if settings.whatsapp %}
+                                    <li><a href="{{ settings.whatsapp }}" class="fa fa-whatsapp"><span class="social-tooltip">Whatsapp</span></a></li>
+                                {% endif %}
+                            </ul>
+                        </div> 
+                    </div>
+
+                    <!-- Contact Nav -->                            
+                 	<div class="contact-slide-hide"> 
+                        <div class="contact-nav">
+                             <a href="javascript:void(0)" class="contact_close">&times;</a>
+                             <div class="contact-nav-form p-a30">
+                    			<form class="cons-contact-form" method="post" action="{% url 'contact-page' %}">
+                                    {% csrf_token %}
+                                    <div class="contact-one m-b30">
+                                    
+                                        <!-- TITLE START -->
+                                        <div class="section-head text-center">
+                                            <h2 class="m-b5" data-title="Form">Связаться с нами</h2>
+                                        </div>
+                                        <!-- TITLE END -->  
+                                         <div class="row">
+                                             <div class="col-md-6">                               
+                                                <div class="form-group wt-inputicon-box">
+                                                    <input name="username" type="text" required class="form-control" placeholder="Имя">
+                                                    <i class="fs-input-icon sl-icon-user"></i>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group wt-inputicon-box">
+                                                    <input name="email" type="text" required class="form-control" placeholder="Email">
+                                                    <i class="fs-input-icon sl-icon-envelope-open"></i>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-12">
+                                                <div class="form-group wt-inputicon-box">
+                                                    <textarea name="message" rows="3" required class="form-control" placeholder="Сообщение"></textarea>
+                                                    <i class="fs-input-icon sl-icon-bubbles"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button name="submit" type="submit" value="Submit" class="btn-half site-button button-lg m-b15">
+                                                    <span>Отправить</span>
+                                                    <em></em>
+                                                </button>
+                                                <p class="m-t0"><span class="text-primary">*</span> Мы свяжемся с вами в ближайшее время.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER END -->

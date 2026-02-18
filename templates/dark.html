@@ -1,0 +1,363 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<!-- META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="{{ base_info.company_name|default:settings.title|default:'строительство, ремонт, дизайн' }}" />
+    <meta name="author" content="{{ base_info.company_name|default:settings.title|default:'Строительная компания' }}" />
+    <meta name="robots" content="" />    
+    <meta name="description" content="{{ base_info.description|default:settings.description|default:'Профессиональные строительные и ремонтные услуги' }}" />
+    
+    <!-- FAVICONS ICON -->
+    {% if settings.icon %}
+        <link rel="icon" href="{{ settings.icon.url }}" type="image/x-icon" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{ settings.icon.url }}" />
+    {% else %}
+        <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+    {% endif %}
+    
+    <!-- PAGE TITLE HERE -->
+    <title>{{ base_info.company_name|default:settings.title|default:'Строительная компания' }} | {{ base_info.description|default:settings.description|default:'Профессиональные услуги' }}</title>
+    
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"><!-- BOOTSTRAP STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'css/t-datepicker.min.css' %}" ><!-- BOOTSTRAP DATEPICKER STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'css/t-datepicker-blue.css' %}" ><!-- BOOTSTRAP DATEPICKER STYLE SHEET -->     
+    <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}" /><!-- FONTAWESOME STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}"><!-- OWL CAROUSEL STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.min.css' %}"><!-- MAGNIFIC POPUP STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'css/loader.min.css' %}"><!-- LOADER STYLE SHEET -->    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"><!-- MAIN STYLE SHEET -->
+    <link rel="stylesheet" class="skin" href="{% static 'css/skin/skin-1.css' %}"><!-- THEME COLOR CHANGE STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'css/flaticon.min.css' %}"><!-- FLATICON STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'css/switcher.css' %}"><!-- SIDE SWITCHER STYLE SHEET -->
+
+    <!-- REVOLUTION SLIDER CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/revolution/revolution/css/settings.css' %}">
+    <!-- REVOLUTION NAVIGATION STYLE -->
+    <link rel="stylesheet" href="{% static 'plugins/revolution/revolution/css/navigation.css' %}">
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,800,800i,900" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text:400,400i&display=swap&subset=latin-ext" rel="stylesheet">
+
+    <!-- Dark Theme Styles -->
+    <style>
+        body {
+            background-color: #1a1a1a !important;
+            color: #ffffff !important;
+        }
+        
+        .main-bar {
+            background-color: #2d2d2d !important;
+        }
+        
+        .header-nav .nav > li > a {
+            color: #ffffff !important;
+        }
+        
+        .header-nav .nav > li > a:hover {
+            color: #007bff !important;
+        }
+        
+        .footer-top {
+            background-color: #2d2d2d !important;
+        }
+        
+        .footer-bottom {
+            background-color: #1a1a1a !important;
+        }
+        
+        .widget_about p {
+            color: #cccccc !important;
+        }
+        
+        .widget-title {
+            color: #ffffff !important;
+        }
+        
+        .widget_address li {
+            color: #cccccc !important;
+        }
+        
+        .section-head h2 {
+            color: #ffffff !important;
+        }
+        
+        .news-letter-footer h4 {
+            color: #ffffff !important;
+        }
+        
+        .news-letter-footer p {
+            color: #cccccc !important;
+        }
+    </style>
+
+</head>
+
+<body id="bg">
+<div class="page-wraper"> 
+
+    <!-- HEADER -->
+    {% include 'header.html' %}
+
+    <!-- CONTENT START -->
+    <div class="page-content">
+        
+        <!-- SLIDER START -->
+        <div class="rev-slider">
+            <div class="tp-banner-container">
+                <div class="tp-banner" >
+                    <ul>
+                        <!-- SLIDE 1 -->
+                        <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/banner/slide1.jpg"  data-saveperformance="off"  data-title="{{ base_info.company_name|default:settings.title|default:'Строительная компания' }}">
+                            <img src="{% static 'images/banner/slide1.jpg' %}"  alt="{{ base_info.company_name|default:settings.title|default:'Строительная компания' }}"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                            
+                            <div class="tp-caption sft tp-resizeme"
+                                data-x="center"
+                                data-y="center" 
+                                data-voffset="-50" 
+                                data-speed="600"
+                                data-start="0"
+                                data-easing="Power4.easeOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.01"
+                                data-endelementdelay="0.1"
+                                data-endspeed="500"
+                                data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                                style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">
+                                <h2 class="m-b5">{{ base_info.company_name|default:settings.title|default:'Профессиональное строительство' }}</h2>
+                            </div>
+                            
+                            <div class="tp-caption lfr tp-resizeme"
+                                data-x="center"
+                                data-y="center" 
+                                data-voffset="20" 
+                                data-speed="600"
+                                data-start="1000"
+                                data-easing="Power4.easeOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.01"
+                                data-endelementdelay="0.1"
+                                data-endspeed="500"
+                                data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                                style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
+                                <p class="max-w600 m-b30">{{ base_info.description|default:settings.description|default:'Качественные строительные и ремонтные услуги для вашего дома и бизнеса' }}</p>
+                            </div>
+                            
+                            <div class="tp-caption sfb tp-resizeme"
+                                data-x="center"
+                                data-y="center" 
+                                data-voffset="100" 
+                                data-speed="600"
+                                data-start="1500"
+                                data-easing="Power4.easeOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.01"
+                                data-endelementdelay="0.1"
+                                data-endspeed="500"
+                                data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                                style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
+                                <a href="{% url 'contact-page' %}" class="site-button button-lg m-b15"><span class="site-button-in">Связаться с нами</span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- SLIDER END -->
+
+        <!-- ABOUT COMPANY START -->
+        <div class="section-full p-t80 p-b50 bg-gray-dark">
+            <div class="container">
+                <div class="section-head text-center">
+                    <h2 class="m-b5" data-title="О компании">{{ base_info.company_name|default:settings.title|default:'О нашей компании' }}</h2>
+                    <p>{{ base_info.description|default:settings.description|default:'Мы предоставляем высококачественные строительные и ремонтные услуги для residential и коммерческих объектов.' }}</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-max-one">
+                            <div class="max-one-img">
+                                <img src="{% static 'images/about/pic1.jpg' %}" alt="{{ base_info.company_name|default:settings.title }}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-max-one">
+                            <div class="max-one-info">
+                                <h3 class="m-t0">{{ base_info.services_title|default:'Профессиональные строительные решения' }}</h3>
+                                <p>{{ base_info.about_text|default:settings.description|default:'Наша компания специализируется на предоставлении комплексных строительных услуг, от проектирования до завершения работ. Мы гарантируем качество и надежность на каждом этапе.' }}</p>
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="wt-icon-box-wraper left bg-white p-a20 m-b20">
+                                            <div class="icon-md text-primary">
+                                                <i class="fa fa-home"></i>
+                                            </div>
+                                            <div class="icon-content">
+                                                <h5 class="m-t0 m-b5">Строительство</h5>
+                                                <p>Полный спектр строительных работ</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="wt-icon-box-wraper left bg-white p-a20 m-b20">
+                                            <div class="icon-md text-primary">
+                                                <i class="fa fa-tools"></i>
+                                            </div>
+                                            <div class="icon-content">
+                                                <h5 class="m-t0 m-b5">Ремонт</h5>
+                                                <p>Качественный ремонт помещений</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="wt-icon-box-wraper left bg-white p-a20 m-b20">
+                                            <div class="icon-md text-primary">
+                                                <i class="fa fa-paint-brush"></i>
+                                            </div>
+                                            <div class="icon-content">
+                                                <h5 class="m-t0 m-b5">Дизайн</h5>
+                                                <p>Современные дизайнерские решения</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="wt-icon-box-wraper left bg-white p-a20 m-b20">
+                                            <div class="icon-md text-primary">
+                                                <i class="fa fa-hard-hat"></i>
+                                            </div>
+                                            <div class="icon-content">
+                                                <h5 class="m-t0 m-b5">Консультация</h5>
+                                                <p>Профессиональные консультации</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ABOUT COMPANY END -->
+
+        <!-- CONTACT INFO START -->
+        <div class="section-full p-t80 p-b50 bg-dark">
+            <div class="container">
+                <div class="section-head text-center">
+                    <h2 class="m-b5 text-white" data-title="Контакты">Контактная информация</h2>
+                    <p class="text-white">Свяжитесь с нами для получения консультации</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="wt-icon-box-wraper center bg-gray-dark p-a30 m-b30">
+                            <div class="icon-xl text-primary m-b20">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="m-t0 text-white">Адрес</h4>
+                                <p>{{ base_info.address|default:settings.address|default:'92 Princess Road, parkvenue,Greater London, NW18JR, United Kingdom' }}</p>
+                                {% if settings.locate %}
+                                    <a href="{{ settings.locate }}" target="_blank" class="site-button-link">Посмотреть на карте</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="wt-icon-box-wraper center bg-gray-dark p-a30 m-b30">
+                            <div class="icon-xl text-primary m-b20">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="m-t0 text-white">Телефон</h4>
+                                <p>{{ base_info.phone|default:settings.phone_number|default:'+996 (555) 123-456' }}</p>
+                                <a href="tel:{{ base_info.phone|default:settings.phone_number|default:'+996555123456' }}" class="site-button-link">Позвонить нам</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="wt-icon-box-wraper center bg-gray-dark p-a30 m-b30">
+                            <div class="icon-xl text-primary m-b20">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="m-t0 text-white">Email</h4>
+                                <p>{{ base_info.email|default:settings.email|default:'info@example.com' }}</p>
+                                <a href="mailto:{{ base_info.email|default:settings.email|default:'info@example.com' }}" class="site-button-link">Написать нам</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTACT INFO END -->
+
+    </div>
+    <!-- CONTENT END -->
+
+    <!-- FOOTER -->
+    {% include 'footer.html' %}
+
+</div>
+
+<!-- LOADING AREA START ===== -->
+<div class="loading-area">
+    <div class="loading-box"></div>
+    <div class="loading-pic">
+        <div class="cssload-thecube">
+            <div class="cssload-cube cssload-c1"></div>
+            <div class="cssload-cube cssload-c2"></div>
+            <div class="cssload-cube cssload-c4"></div>
+            <div class="cssload-cube cssload-c3"></div>
+        </div>
+    </div>
+</div>
+<!-- LOADING AREA  END ====== -->
+
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script><!-- JQUERY.MIN JS -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="{% static 'js/bootstrap-select.min.js' %}"></script><!-- FORM JS -->
+<script src="{% static 'js/jquery.bootstrap-touchspin.min.js' %}"></script><!-- FORM JS -->
+<script src="{% static 'js/magnific-popup.min.js' %}"></script><!-- MAGNIFIC POPUP JS -->
+<script src="{% static 'js/waypoints.min.js' %}"></script><!-- WAYPOINTS JS -->
+<script src="{% static 'js/counterup.min.js' %}"></script><!-- COUNTERUP JS -->
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script><!-- IMAGESLOADED -->
+<script src="{% static 'js/masonry.pkgd.min.js' %}"></script><!-- MASONRY -->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script><!-- OWL CAROUSEL -->
+<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'plugins/revolution/revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script><!-- CUSTOM FUCTIONS  -->
+
+</body>
+</html>
